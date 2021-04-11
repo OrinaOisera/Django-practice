@@ -22,7 +22,7 @@ from website.views import welcome, date
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('welcome.html', welcome),
+    path('', welcome),
     path('date', date)
 
 ]
