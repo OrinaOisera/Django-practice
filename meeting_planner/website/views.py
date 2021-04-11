@@ -10,3 +10,7 @@ def welcome(request):
 
 def date(request):
     return  HttpResponse("This page was served at " + str(datetime.now()))
+
+
+def about(request):
+    return  HttpResponse(" NAME: Mark Orina  Town: Eldoret   County : ug")
