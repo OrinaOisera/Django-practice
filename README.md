@@ -27,3 +27,10 @@ Python scripts that change the data base to keep db structure in sync with code
 5. Step 3: Run migrations
     
     python manage.py migrate
+6. Register Model with Admin site on Admin.py 
+    
+    from .models import example_Model
+    admin.site.register(example_Model)
+7. Create a superuser (in the terminal)   
+
+    python manage.py createsuperuser
