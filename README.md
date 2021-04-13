@@ -31,6 +31,15 @@ Python scripts that change the data base to keep db structure in sync with code
     
     from .models import example_Model
     admin.site.register(example_Model)
-7. Create a superuser (in the terminal)   
+Remember : Create a superuser (in the terminal)   
 
     python manage.py createsuperuser
+
+#Model View  Template  pattern
+Templates -- Components that display data to the user.
+          -- Generates text files and html files
+          -- contains special place holders for variables thus creating dynamic html files.
+views     --the func calls the correct template
+          --uses the func render: pass request and name of template file
+          --Third argument: dict with data passed to the template
+           --Templates should be in folder /templates inside app
