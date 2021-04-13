@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from datetime import  datetime
+from datetime import datetime
 # Create your views here.
 
 
 def welcome(request):
-    return HttpResponse("Welcome to the meeting planner")
+    return render(request, "website/welcome.html", {"message": "THis data was sent from the view to the template"})
 
 
 def date(request):
@@ -13,4 +13,4 @@ def date(request):
 
 
 def about(request):
-    return HttpResponse(" NAME: Mark Orina  Town: Eldoret   County : ug")
+    return HttpResponse(" NAME: Mark Orina Town: Eldoret   County : ug")
