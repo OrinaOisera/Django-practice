@@ -5,6 +5,6 @@ from .models import Meeting
 
 
 def detail(request, id):
-    # meeting = Meeting.objects.get(pk=id)
-    meeting = get_list_or_404(Meeting)
+    meeting = Meeting.objects.get(pk=id)
+    # meeting = get_list_or_404(Meeting)
     return render(request, "meetings/detail.html", {"meeting": meeting})
