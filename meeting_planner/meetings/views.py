@@ -5,5 +5,5 @@ from .models import Meeting
 
 
 def detail(request, id):
-    meeting = Meeting.objects.geet(pk=id)
-    return render(request, "meetings/detail.html", {"meetings": meeting})
+    meeting = Meeting.objects.get(pk=id)
+    return render(request, "meetings/detail.html", {"meeting": meeting})
