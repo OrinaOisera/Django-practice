@@ -20,4 +20,5 @@ MeetingForm = modelform_factory(Meeting, exclude=[])
 
 
 def new(request):
-    return render(request, 'meetings/new.html')
+    form = MeetingForm()
+    return render(request, 'meetings/new.html', {"form": form})
