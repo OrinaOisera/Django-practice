@@ -36,10 +36,29 @@ Remember : Create a superuser (in the terminal)
     python manage.py createsuperuser
 
 #Model View  Template  pattern
-Templates -- Components that display data to the user.
+Template  -- Components that display data to the user.
+
           -- Generates text files and html files
+
           -- contains special place holders for variables thus creating dynamic html files.
-views     --the func calls the correct template
+
+View     --the func calls the correct template
+
           --uses the func render: pass request and name of template file
+
           --Third argument: dict with data passed to the template
+
            --Templates should be in folder /templates inside app
+
+Model    -- Represents the data that live in the application (Models classes mapped to data BASE TABLES)
+
+
+
+
+#Retrieving Model DATA
+
+meeting = Meeting.objects.all()    [Gets all objects]
+
+meeting = Meeting.objects.count()   [Get object count]
+
+meeting = Meeting.objects.get(pk=4)  [Get specific object]
