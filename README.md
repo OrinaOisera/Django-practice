@@ -1,6 +1,15 @@
 # Django-practice
  Commands: python manage.py startapp appname  #Adding a new app
 
+manage.py  ---> is commandline utility to perform admin tasks 
+
+wsgi.py    --->Web Server  Gateway Interface (describes communication btwn webserver & another application)
+
+asgi.py   --->Asynchronous Gateway Interface 
+
+__init.py ---> holds the packages and how they will be looked up 
+
+
 
 Models ---> Are python classes that make our data consistent 
        
@@ -34,6 +43,9 @@ Python scripts that change the data base to keep db structure in sync with code
 Remember : Create a superuser (in the terminal)   
 
     python manage.py createsuperuser
+7. Run app 
+      python manage.py runserver   (runs on default port 8000) 
+      python manage.py runserver 8080  (runss on port 8080)
 
 #Model View  Template  pattern
 Template  -- Components that display data to the user.
@@ -62,3 +74,12 @@ meeting = Meeting.objects.all()    [Gets all objects]
 meeting = Meeting.objects.count()   [Get object count]
 
 meeting = Meeting.objects.get(pk=4)  [Get specific object]
+
+
+---------------------------------------------------------------------------
+
+manage.py 
+
+
+
+Use re_apth to return an element for inclusion in your url pattern.
