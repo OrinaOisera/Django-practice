@@ -9,3 +9,7 @@ def index(request):
 
 def detail(request):
     return HttpResponse("Hello there globomatics is an ecommerce  store for all thingdselectronic")
+
+
+def electronics(request):
+    return HttpResponse("THis is the Made in Kenya Electronics section")
