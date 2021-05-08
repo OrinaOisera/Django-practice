@@ -1,15 +1,18 @@
+from django.core.paginator import Paginator, PageNotAnInteger
 from django.shortcuts import render
-from django.http import  HttpResponse , HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound
+from django.urls import path
 
 
 # Create your views here.
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.gzip import gzip_page
 from django.views.decorators.http import require_http_methods
 
 
 def index(request):
-    return HttpResponse("Hellllo ")
+    return HttpResponse("Hello this is a store ")
 
 
 def detail(request):
@@ -17,13 +20,18 @@ def detail(request):
 
 @csrf_exempt
 @cache_page(900)
+@gzip_page
 @require_http_methods(["GET"])
 def electronics(request):
+    items = ("Windows", "Mac", "Lenovo", "Acer", "Dell", "Samsung")
     if request.method == "GET":
-        print(request.headers)
-        print("-----------------/n", request)
-        return HttpResponse("THis is the Made in Kenya Electronics section")
-    if request.method == 'POST':
-        print("This is not allowed")
+        paginator = Paginator(items, 2)
+        pages = request.GET.get('page', 1)
+        try:
+            items = paginator.page(pages)
+        except PageNotAnInteger:
+            items = paginator.page(1)
+        return render(request, 'store/list.html', {'items': items})
+    elif request.method == 'POST':
         return HttpResponseNotFound("This is not allowed")
 
