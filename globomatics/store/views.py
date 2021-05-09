@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator, PageNotAnInteger
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
+from django.views import View
 from django.urls import path
 
 
@@ -34,4 +35,24 @@ def electronics(request):
         return render(request, 'store/list.html', {'items': items})
     elif request.method == 'POST':
         return HttpResponseNotFound("This is not allowed")
+
+
+class ElectronicsView(View):
+    def get(self, request):
+        items = ("Windows", "Mac", "Lenovo", "Acer", "Dell", "Samsung")
+        paginator = Paginator(items, 2)
+        pages = request.GET.get('page', 1)
+        self.process()
+        try:
+            items = paginator.page(pages)
+        except PageNotAnInteger:
+            items = paginator.page(1)
+        return render(request, 'store/list.html', {'items': items})
+
+    def process(self):
+        print("We are processing Electronics")
+
+
+
+
 
