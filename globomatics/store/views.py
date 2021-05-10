@@ -4,12 +4,12 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.views import View
 from django.urls import path
 
-
 # Create your views here.
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.gzip import gzip_page
 from django.views.decorators.http import require_http_methods
+from django.views.generic import TemplateView, ListView
 
 
 def index(request):
@@ -18,6 +18,7 @@ def index(request):
 
 def detail(request):
     return HttpResponse("Hello there globomatics is an ecommerce  store for all thingdselectronic")
+
 
 @csrf_exempt
 @cache_page(900)
@@ -47,12 +48,38 @@ class ElectronicsView(View):
             items = paginator.page(pages)
         except PageNotAnInteger:
             items = paginator.page(1)
-        return render(request, 'store/list.html', {'items': items})
+        return render(request, 'store/list1.html', {'items': items})
 
     def process(self):
         print("We are processing Electronics")
 
 
+class ElectronicsView2(TemplateView):
+    template_name = 'store/list.html'
+
+    def get_context_data(self, **kwargs):
+        items = ("Windows", "Mac", "Lenovo", "Acer", "Dell", "Samsung")
+        context = {'items': items}
+        return context
 
 
+class ElectronicsView3(ListView):
+    template_name = 'store/list1.html'
+    queryset = ("Windows", "Mac", "Lenovo", "Acer", "Dell", "Samsung445")
+    context_object_name = 'items'
+    paginate_by = 2
+
+
+class ComputersView(ElectronicsView):
+    def process(self):
+        print("We are processing computers")
+
+
+class MobileView():
+    def process(self):
+        print("We are processing Mobilephones")
+
+
+class EquipmentView(MobileView, ComputersView):
+    pass
 
