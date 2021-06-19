@@ -1,5 +1,10 @@
 from django.http import HttpResponse
+from django.shortcuts import  render
 
 
 def index(request):
-    return HttpResponse("Jambo")
+    return render(request, 'index.html')
+
+
+def submit(request):
+    return render(request, 'submit.html')
