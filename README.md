@@ -1,5 +1,10 @@
 # Django-practice
- Commands: python manage.py startapp appname  #Adding a new app
+ Commands:
+dgit jango-admin startproject project name   #start start project
+ 
+
+python manage.py startapp appname  #Adding a new app
+
 
 manage.py  ---> is commandline utility to perform admin tasks 
 
@@ -83,3 +88,9 @@ manage.py
 
 
 Use re_apth to return an element for inclusion in your url pattern.
+
+
+#Class-Based Geneic views 
+
+Display static html content : Template view   
+Display list of items : List View
