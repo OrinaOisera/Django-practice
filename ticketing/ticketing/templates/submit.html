@@ -5,8 +5,17 @@
     <title>Submit</title>
 </head>
 <body>
+submit a ticket
+<form action="/submit" method="post">
+    {%csrf_token%}
+    <input type="text" name="Username" placeholder="username">
+    <br>
+    <textarea placeholder="body"  name="body"></textarea>
+     <input type="submit" value="Submit">
 
-<h1> Submit form </h1>
+</form>
+
+
 
 </body>
 </html>

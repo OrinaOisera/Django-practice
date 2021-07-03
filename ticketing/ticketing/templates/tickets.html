@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tickets</title>
+</head>
+<body>
+<h1> Tickets</h1>
+<p>THe first ticket was submitted by "{{ tickets.0.submitter}}"</p>
+<p>And the body  "{{ tickets.0.body}}"</p>
+
+<h2> All tickets</h2>
+ {%for ticket in tickets %}
+<div>   Submitter:  "{{ticket.submitter}}",  created at "{{ticket.created_at}}" </div>
+
+{% endfor %}
+
+<h2> Filtered tickets</h2>
+ {%for ticket in tickets %}
+    {% if ticket.submitter == 'Test User'%}
+    <div>   Submitter:  "{{ticket.submitter}}",  created at "{{ticket.created_at}}" </div>
+    {% else %}
+    <div  style="color: red">   Submitter:  "{{ticket.submitter}}",  created at "{{ticket.created_at}}" </div>
+
+    {%endif%}
+
+{% endfor %}
+
+</body>
+</html>
+
